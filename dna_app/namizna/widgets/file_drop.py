@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QPushButton, QLabel, QTextEdit, QGridLayout
 class file_drop(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(file_drop, self).__init__(parent)
-        grid_layout = QGridLayout(self)
+        grid_layout = QGridLayout(self, alignment=QtCore.Qt.AlignCenter)
         
         self.setAcceptDrops(True)
 
@@ -17,7 +17,7 @@ class file_drop(QtWidgets.QWidget):
 
         self.file_drop = QTextEdit()
         self.file_drop.setAlignment(QtCore.Qt.AlignCenter)
-        self.file_drop.setFixedWidth(600)
+        self.file_drop.setFixedWidth(700)
         self.file_drop.setFixedHeight(150)
         self.file_drop.setMaximumWidth(600)
         self.file_drop.setMaximumHeight(150)
@@ -37,11 +37,11 @@ class file_drop(QtWidgets.QWidget):
 
         self.file_drop_result = QTextEdit()
         self.file_drop_result.setAlignment(QtCore.Qt.AlignCenter)
-        self.file_drop_result.setFixedWidth(600)
+        self.file_drop_result.setFixedWidth(700)
         self.file_drop_result.setFixedHeight(150)
         self.file_drop_result.setMaximumWidth(600)
         self.file_drop_result.setMaximumHeight(150)
-        self.file_drop_result.setPlaceholderText('Rezultat')
+        self.file_drop_result.setPlaceholderText('Rezultat sekvenca DNK')
 
         self.btn_back.setStyleSheet(style.user_interface_btn_back_style)
         self.btn_action.setStyleSheet(style.user_interface_btn1_style)
@@ -49,13 +49,13 @@ class file_drop(QtWidgets.QWidget):
         self.file_drop.setStyleSheet(style.user_interface_te1_style)
         self.file_drop_result.setStyleSheet(style.user_interface_te2_style)
 
-        grid_layout.addWidget(self.btn_back, 0, 0)
+        grid_layout.addWidget(self.btn_back, 0, 3)
 
         #rowSpan columnSpan
-        grid_layout.addWidget(self.file_drop, 1, 0, 1, 2)
+        grid_layout.addWidget(self.file_drop, 1, 0, 1, 4)
         grid_layout.addWidget(self.btn_action, 2, 0)
-        grid_layout.addWidget(self.btn_save_img, 2, 1)
-        grid_layout.addWidget(self.file_drop_result, 3, 0, 1, 2)
+        grid_layout.addWidget(self.btn_save_img, 2, 3)
+        grid_layout.addWidget(self.file_drop_result, 3, 0, 1, 4)
         
         self.setLayout(grid_layout)
 

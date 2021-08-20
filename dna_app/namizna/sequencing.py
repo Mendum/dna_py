@@ -78,32 +78,26 @@ def fromDnaToBytes(dna_value):
 # ===============================
 # image v DNA
 def fromImageToDna(image_path):
-
     user_image = Image.open(image_path)
     user_image.save('C:\\Users\\Bobby\\Desktop\\slikca.png', 'PNG', optimize=True, quality=75)
-
-    #https://stackoverflow.com/questions/30771652/how-to-perform-jpeg-compression-in-python-without-writing-reading
-    #https://stackoverflow.com/questions/10607468/how-to-reduce-the-image-file-size-using-pil
     with open('C:\\Users\\Bobby\\Desktop\\slikca.png', 'rb') as img_file:
         b64_string  = base64.b64encode(img_file.read())
     
-    print(b64_string)
-    #base64_decoded = base64.decodebytes(b64_string)
     bytes_image = ''.join(format(znak, '08b') for znak in b64_string)
     dna_sequence = fromBytesToDna(bytes_image)
     return dna_sequence
 
 def DnaSequenceToImage(user_input):
-
     decoded_dna_sequence = fromBitiToText(user_input)
-    print(decoded_dna_sequence)
-    
-    #base64_decoded = base64.decodebytes(b64_string)
     b64_string = "".join([chr(int(binary, 2)) for binary in decoded_dna_sequence[:-1].split(" ")])
     img_data = base64.b64decode(b64_string)
     with open('C:\\Users\\Bobby\\Desktop\\test.png', 'wb') as f:
         f.write(img_data)
 
 #
+#https://stackoverflow.com/questions/30771652/how-to-perform-jpeg-compression-in-python-without-writing-reading
+#https://stackoverflow.com/questions/10607468/how-to-reduce-the-image-file-size-using-pil
+    
+
 #video 
 #https://stackoverflow.com/questions/17686698/python-how-to-read-a-video-file-as-binary-data#17686777

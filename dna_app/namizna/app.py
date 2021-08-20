@@ -2,7 +2,10 @@ import sys
 import namizna.widgets.main as widget_main
 import namizna.widgets.encode_normal as widget_encode_normal
 import namizna.widgets.file_drop as widget_file_drop
+import namizna.style as style
 from PySide6 import QtWidgets
+from PySide6.QtWidgets import QMenu, QGridLayout, QVBoxLayout, QToolBar, QToolButton, QPlainTextEdit
+from PySide6.QtGui import QIcon
 
 #---------------------------------- Application ---------------------------------------
 
@@ -16,10 +19,11 @@ class dna_app(QtWidgets.QMainWindow):
         user_interface_main_window_style = (
             'background-color: #1e1f25;'
             'color: #ccced1;' # primary_color
-           #'color: #61656a;' # secondary_color
+           #'color: #61656a;' # secondary_colo
 
            'font-size: 16px;' 
         )
+        
         self.setStyleSheet(user_interface_main_window_style)
 
         self.central_widget = QtWidgets.QStackedWidget()
@@ -29,7 +33,7 @@ class dna_app(QtWidgets.QMainWindow):
         
         central_widget_main.btn_normal_encoding.clicked.connect(self.change_central_widget_encode)
         central_widget_main.btn_file_encoding.clicked.connect(self.change_central_widget_file_drop)
-        
+
     def change_central_widget_encode(self):
         central_widget_encode_normal = widget_encode_normal.encode_normal(self)
         self.central_widget.addWidget(central_widget_encode_normal)
@@ -51,6 +55,7 @@ class dna_app(QtWidgets.QMainWindow):
         self.central_widget.addWidget(central_widget_main)
         self.central_widget.setCurrentWidget(central_widget_main)
         
+        central_widget_main.btn_normal_encoding.clicked.connect(self.change_central_widget_encode)
         central_widget_main.btn_file_encoding.clicked.connect(self.change_central_widget_file_drop)
         
 #---------------------------------- main -----------------------------------------

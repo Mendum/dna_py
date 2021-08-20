@@ -1,3 +1,21 @@
+#-------------- menu - bar --------------
+
+user_interface_menu = (
+    '''QMenu {
+        background-color: #26292f;
+        border: none;
+        border-radius: 10px;
+        color: #737479;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    QMenu::hover {
+        color : #ccced1;
+        font-weight: bold;
+        border-bottom: 2px solid #2d9cfd;
+    }'''
+)
 
 #-------------- main --------------
 
@@ -17,6 +35,18 @@ user_interface_btn_style = (
         border-bottom: 2px solid #2d9cfd;
     }'''
 )
+
+user_interface_lb_welcome = (
+    '''QLabel {
+        background-color: #26292f, 0.8;
+        border: 1px solid #2c2d32;
+        border-radius: 10px;
+        color: #737479;
+        font-size: 16px;
+        font-weight: bold;
+    }'''
+)
+
 
 #-------------- encode - normal --------------
 
