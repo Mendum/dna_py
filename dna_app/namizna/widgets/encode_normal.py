@@ -1,4 +1,6 @@
 import namizna.app, namizna.sequencing as sequencing, namizna.style as style
+import tkinter as tk
+from tkinter import filedialog
 from PySide6 import QtCore, QtWidgets
 from PySide6.QtWidgets import QPushButton, QLabel, QTextEdit, QGridLayout
 
@@ -11,9 +13,9 @@ class encode_normal(QtWidgets.QWidget):
         
         self.setAcceptDrops(True)
 
-        self.btn_back = QPushButton('<--')
+        self.btn_back = QPushButton('Meni')
         self.btn_back.setObjectName('BtnBack')
-        self.btn_back.setFixedWidth(40)
+        self.btn_back.setFixedWidth(200)
         self.btn_back.setFixedHeight(35)
 
         self.user_input_form = QTextEdit()
@@ -24,17 +26,23 @@ class encode_normal(QtWidgets.QWidget):
         self.user_input_form.setMaximumHeight(150)
         self.user_input_form.setPlaceholderText('Podaj besedilo')
         
-        self.btn_action = QPushButton('Kodiraj')
-        self.btn_action.setObjectName('BtnStatic1')
-        self.btn_action.setFixedWidth(200)
-        self.btn_action.setFixedHeight(45)
-        self.btn_action.clicked.connect(self.normal_encoding_line_edit)
+        self.btn_encode = QPushButton('Kodiraj')
+        self.btn_encode.setObjectName('BtnStatic1')
+        self.btn_encode.setFixedWidth(200)
+        self.btn_encode.setFixedHeight(45)
+        self.btn_encode.clicked.connect(self.normal_encoding_line_edit)
 
-        self.btn_save_img = QPushButton('Dekodiraj')
-        self.btn_save_img.setObjectName('BtnStatic2')
-        self.btn_save_img.setFixedWidth(200)
-        self.btn_save_img.setFixedHeight(45)
-        self.btn_save_img.clicked.connect(self.normal_decoding_line_edit)
+        self.btn_decode = QPushButton('Dekodiraj')
+        self.btn_decode.setObjectName('BtnStatic2')
+        self.btn_decode.setFixedWidth(200)
+        self.btn_decode.setFixedHeight(45)
+        self.btn_decode.clicked.connect(self.normal_decoding_line_edit)
+        
+        self.btn_save = QPushButton('Shrani')
+        self.btn_save.setObjectName('BtnSave')
+        self.btn_save.setFixedWidth(200)
+        self.btn_save.setFixedHeight(45)
+        self.btn_save.clicked.connect(self.save_file)
 
         self.user_result_form = QTextEdit()
         self.user_result_form.setAlignment(QtCore.Qt.AlignCenter)
@@ -45,8 +53,9 @@ class encode_normal(QtWidgets.QWidget):
         self.user_result_form.setPlaceholderText('Rezultat sekvenca DNK')
 
         self.btn_back.setStyleSheet(style.user_interface_btn_back_style)
-        self.btn_action.setStyleSheet(style.user_interface_btn1_style)
-        self.btn_save_img.setStyleSheet(style.user_interface_btn2_style)
+        self.btn_encode.setStyleSheet(style.user_interface_btn1_style)
+        self.btn_decode.setStyleSheet(style.user_interface_btn2_style)
+        self.btn_save.setStyleSheet(style.user_interface_btn3_style)
         self.user_input_form.setStyleSheet(style.user_interface_te2_style)
         self.user_result_form.setStyleSheet(style.user_interface_te2_style)
 
@@ -54,8 +63,9 @@ class encode_normal(QtWidgets.QWidget):
 
         #rowSpan columnSpan
         grid_layout.addWidget(self.user_input_form, 1, 0, 1, 4)
-        grid_layout.addWidget(self.btn_action, 2, 0)
-        grid_layout.addWidget(self.btn_save_img, 2, 3)
+        grid_layout.addWidget(self.btn_encode, 2, 0)
+        grid_layout.addWidget(self.btn_decode, 2, 1)
+        grid_layout.addWidget(self.btn_save, 2, 3)
         grid_layout.addWidget(self.user_result_form, 3, 0, 1, 4)
         
         self.setLayout(grid_layout)
@@ -71,6 +81,22 @@ class encode_normal(QtWidgets.QWidget):
         user_text_input = self.user_input_form.toPlainText()
         dna_sequencing = sequencing.DnaSequenceToText(user_text_input)
         self.user_result_form.setText(dna_sequencing)
+
+    
+    def save_file(self):
+        file_data = self.user_result_form.toPlainText()
+        if file_data is None:
+            return
+
+        root = tk.Tk()
+        root.withdraw()
+
+        file_path = filedialog.asksaveasfilename(initialfile = 'sekvenca_dnk_besedilo.txt',filetypes=[("All Files","*.*"),("Text Documents","*.txt")])
+        if file_path is None:
+            return
+
+        with open(file_path, 'w') as f:
+            f.write(file_data)
 
     #def huffman_encoding_line_edit(self):
         #user_text_input = self.user_input_form.text()

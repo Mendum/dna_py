@@ -123,6 +123,25 @@ user_interface_btn2_style = (
     '''
 )
 
+user_interface_btn3_style = (
+    '''
+    QPushButton#BtnSave {
+        background-color: #26292f;
+        border-radius: 10px;
+        color: #b5b5b9;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    QPushButton#BtnSave::hover {
+        background-color : #26292f;
+        color: #fff7fd;
+        font-weight: bold;
+        border-bottom: 2px solid #20c2c4;
+    }
+    '''
+)
+
 user_interface_te1_style = (
     '''
     background-color: #26292f;

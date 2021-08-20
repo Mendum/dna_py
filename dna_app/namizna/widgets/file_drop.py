@@ -1,4 +1,6 @@
 import namizna.app, namizna.sequencing as sequencing, namizna.style as style
+import tkinter as tk
+from tkinter import filedialog
 from PySide6 import QtCore, QtWidgets
 from PySide6.QtWidgets import QPushButton, QLabel, QTextEdit, QGridLayout
 #---------------------------------- File - Drop - Widgets ---------------------------------------
@@ -10,9 +12,9 @@ class file_drop(QtWidgets.QWidget):
         
         self.setAcceptDrops(True)
 
-        self.btn_back = QPushButton('<--')
+        self.btn_back = QPushButton('Meni')
         self.btn_back.setObjectName('BtnBack')
-        self.btn_back.setFixedWidth(40)
+        self.btn_back.setFixedWidth(200)
         self.btn_back.setFixedHeight(35)
 
         self.file_drop = QTextEdit()
@@ -23,17 +25,23 @@ class file_drop(QtWidgets.QWidget):
         self.file_drop.setMaximumHeight(150)
         self.file_drop.setPlaceholderText('Povleci datoteko')
         
-        self.btn_action = QPushButton('Kodiraj')
-        self.btn_action.setObjectName('BtnStatic1')
-        self.btn_action.setFixedWidth(200)
-        self.btn_action.setFixedHeight(45)
-        self.btn_action.clicked.connect(self.image_encoding)
+        self.btn_encode = QPushButton('Kodiraj')
+        self.btn_encode.setObjectName('BtnStatic1')
+        self.btn_encode.setFixedWidth(200)
+        self.btn_encode.setFixedHeight(45)
+        self.btn_encode.clicked.connect(self.image_encoding)
 
-        self.btn_save_img = QPushButton('Dekodiraj')
-        self.btn_save_img.setObjectName('BtnStatic2')
-        self.btn_save_img.setFixedWidth(200)
-        self.btn_save_img.setFixedHeight(45)
-        self.btn_save_img.clicked.connect(self.image_decoding)
+        self.btn_decode = QPushButton('Dekodiraj')
+        self.btn_decode.setObjectName('BtnStatic2')
+        self.btn_decode.setFixedWidth(200)
+        self.btn_decode.setFixedHeight(45)
+        self.btn_decode.clicked.connect(self.image_decoding)
+
+        self.btn_save = QPushButton('Shrani')
+        self.btn_save.setObjectName('BtnSave')
+        self.btn_save.setFixedWidth(200)
+        self.btn_save.setFixedHeight(45)
+        self.btn_save.clicked.connect(self.save_file)
 
         self.file_drop_result = QTextEdit()
         self.file_drop_result.setAlignment(QtCore.Qt.AlignCenter)
@@ -44,8 +52,9 @@ class file_drop(QtWidgets.QWidget):
         self.file_drop_result.setPlaceholderText('Rezultat sekvenca DNK')
 
         self.btn_back.setStyleSheet(style.user_interface_btn_back_style)
-        self.btn_action.setStyleSheet(style.user_interface_btn1_style)
-        self.btn_save_img.setStyleSheet(style.user_interface_btn2_style)
+        self.btn_encode.setStyleSheet(style.user_interface_btn1_style)
+        self.btn_decode.setStyleSheet(style.user_interface_btn2_style)
+        self.btn_save.setStyleSheet(style.user_interface_btn3_style)
         self.file_drop.setStyleSheet(style.user_interface_te1_style)
         self.file_drop_result.setStyleSheet(style.user_interface_te2_style)
 
@@ -53,8 +62,9 @@ class file_drop(QtWidgets.QWidget):
 
         #rowSpan columnSpan
         grid_layout.addWidget(self.file_drop, 1, 0, 1, 4)
-        grid_layout.addWidget(self.btn_action, 2, 0)
-        grid_layout.addWidget(self.btn_save_img, 2, 3)
+        grid_layout.addWidget(self.btn_encode, 2, 0)
+        grid_layout.addWidget(self.btn_decode, 2, 1)
+        grid_layout.addWidget(self.btn_save, 2, 3)
         grid_layout.addWidget(self.file_drop_result, 3, 0, 1, 4)
         
         self.setLayout(grid_layout)
@@ -73,6 +83,21 @@ class file_drop(QtWidgets.QWidget):
         #image_base_64 = sequencing.DnaSequenceToImage(dna_sequence)
         #print(image_base_64)
         #self.user_result_form.setText(image_base_64)
+    
+    def save_file(self):
+        file_data = self.file_drop_result.toPlainText()
+        if file_data is None:
+            return
+
+        root = tk.Tk()
+        root.withdraw()
+
+        file_path = filedialog.asksaveasfilename(initialfile = 'sekvenca_dnk_slika.txt',filetypes=[("All Files","*.*"),("Text Documents","*.txt")])
+        if file_path is None:
+            return
+
+        with open(file_path, 'w') as f:
+            f.write(file_data)
 
 #---------------------------------- Drag - Drop - Functions -----------------------------------------
 
