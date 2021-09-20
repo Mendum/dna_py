@@ -84,6 +84,26 @@ user_interface_btn_back_style = (
     '''
 )
         
+user_interface_btn_open_style = (
+    '''
+    QPushButton#BtnOpen {
+        background-color: #26292f;
+        border: none;
+        border-radius: 10px;
+        color: #b5b5b9;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    QPushButton#BtnOpen::hover {
+        background-color : #26292f;
+        color: #fff7fd;
+        font-weight: bold;
+        border-bottom: 2px solid #2d9cfd;
+    }
+    '''
+)
+
 user_interface_btn1_style = (
     '''
     QPushButton#BtnStatic1 {

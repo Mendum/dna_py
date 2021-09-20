@@ -60,7 +60,7 @@ def fromBitiToText(user_input):
 
         if(j % 4 == 0):
             decoded_sequence += ' '
-            j = 0     
+            j = 0
 
     return decoded_sequence
 
