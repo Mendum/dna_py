@@ -115,8 +115,7 @@ Distributed under the MIT License. See [MIT](http://opensource.org/licenses/mit-
 
 Blaz Vidovic: [@linkedIn](https://www.linkedin.com/in/blaz-vidovic/)
 
-Personal e-mail: blazvidovic6@gmail.com
-Student e-mail: blaz.vidovic2@student.um.si
+Personal e-mail: blazvidovic6@gmail.com<br>Student e-mail: blaz.vidovic2@student.um.si
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
