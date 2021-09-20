@@ -1,24 +1,25 @@
 <!--
 *** Thanks to othneildrew (https://github.com/othneildrew)
 *** for his Read.me template
-*** https://github.com/othneildrew/Best-README-Template
+*** othneildrew/Best-README-Template
 *** Thanks again!
 -->
 
-
 <!-- PROJECT LOGO -->
-<br />
-<p align="center">
+<h3 align="center">
+  <br>
   <a href="https://github.com/Mendum/dna_py">
     <img src="https://github.com/Mendum/dna_py/blob/version_beta/dna_app/namizna/image/logo.png" alt="Logo">
   </a>
-
-  <h1 align="center">dna_py</h1>
-
-  <p align="center">
-    <a href="https://github.com/Mendum/dna_py/issues">Request Feature</a>
-  </p>
+  <br> <br>
+</h3>
+<p align="center">
+  <a>Encoding scheme for converting text, image files to dna sequence</a>
 </p>
+<p align="center">
+  <a href="https://github.com/Mendum/dna_py/issues">Request Feature</a>
+</p>
+<br>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -26,6 +27,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+<br>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
