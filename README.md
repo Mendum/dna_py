@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Mendum/dna_py">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/Mendum/dna_py/blob/version_beta/dna_app/namizna/image/logo.png" alt="Logo">
   </a>
 
   <h1 align="center">dna_py</h1>
