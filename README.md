@@ -13,13 +13,15 @@
   </a>
   <br>
 </h3>
+<br>
 <p align="center">
   <a>Encoding scheme for converting text, image files to dna sequence</a>
 </p>
 <p align="center">
   <a href="https://github.com/Mendum/dna_py/issues">Request Feature</a>
 </p>
-
+<br>
+<br>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
