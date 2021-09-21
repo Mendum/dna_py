@@ -1,10 +1,3 @@
-<!--
-*** Thanks to othneildrew (https://github.com/othneildrew)
-*** for his Read.me template
-*** othneildrew/Best-README-Template
-*** Thanks again!
--->
-
 <!-- PROJECT LOGO -->
 <h3 align="center">
   <br>
