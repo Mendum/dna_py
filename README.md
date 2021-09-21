@@ -13,14 +13,13 @@
   </a>
   <br>
 </h3>
-<h1>    </h1>
 <p align="center">
   <a>Encoding scheme for converting text, image files to dna sequence</a>
 </p>
 <p align="center">
   <a href="https://github.com/Mendum/dna_py/issues">Request Feature</a>
 </p>
-<br>
+
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -29,7 +28,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 <br>
-
+<h1>    </h1>
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
