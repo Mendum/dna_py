@@ -11,7 +11,7 @@
   <a href="https://github.com/Mendum/dna_py">
     <img src="https://github.com/Mendum/dna_py/blob/version_beta/dna_app/namizna/image/logo.png" alt="Logo">
   </a>
-  <br> <br>
+  <br>
 </h3>
 <h1>    </h1>
 <p align="center">
